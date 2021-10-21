@@ -1,0 +1,26 @@
+.Transaction {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px 0;
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+}
+.Transaction th {
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+  background: rgb(0, 188, 213);
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 15px;
+}
+.Transaction tbody tr:nth-child(even) {
+  background: rgb(236, 241, 243);
+}
+.Transaction td {
+  font-weight: 400;
+  font-size: 18px;
+  border: 1px solid #dddddd;
+  padding: 15px;
+  text-align: center;
+}
