@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import cs from "./Statistics.module.css";
+import randomColor from "./helper";
 
 const Statistics = ({ title, stats }) => {
   return (
@@ -8,14 +9,14 @@ const Statistics = ({ title, stats }) => {
         {title && <h2 className={cs.title}>{title}</h2>}
 
         <ul className={cs.statlist}>
-          {stats.map((e) => (
+          {stats.map(({ id, label, percentage }) => (
             <li
               className={cs.item}
-              style={{ backgroundColor: `${get_rand_color()}` }}
-              key={e.id}
+              style={{ backgroundColor: `${randomColor()}` }}
+              key={id}
             >
-              <span className={cs.label}>{e.label}</span>
-              <span className={cs.percentage}>{e.percentage}%</span>
+              <span className={cs.label}>{label}</span>
+              <span className={cs.percentage}>{percentage}%</span>
             </li>
           ))}
         </ul>
@@ -25,6 +26,7 @@ const Statistics = ({ title, stats }) => {
 };
 
 Statistics.propTypes = {
+  title: PropTypes.string,
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -34,12 +36,12 @@ Statistics.propTypes = {
   ),
 };
 
-function get_rand_color() {
-  let color = Math.floor(Math.random() * Math.pow(256, 3)).toString(16);
-  while (color.length < 6) {
-    color = "0" + color;
-  }
-  return "#" + color;
-}
+// function get_rand_color() {
+//   let color = Math.floor(Math.random() * Math.pow(256, 3)).toString(16);
+//   while (color.length < 6) {
+//     color = "0" + color;
+//   }
+//   return "#" + color;
+// }
 
 export default Statistics;

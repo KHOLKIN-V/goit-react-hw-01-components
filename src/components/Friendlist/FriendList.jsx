@@ -5,20 +5,20 @@ const FriendList = ({ friend }) => {
   return (
     <>
       <ul className={cs.Friendlist}>
-        {friend.map((e) => (
-          <li className={cs.item} key={e.id}>
+        {friend.map(({ id, isOnline, name, avatar }) => (
+          <li className={cs.item} key={id}>
             <span
               className={cs.status}
               style={
-                e.isOnline
+                isOnline
                   ? { backgroundColor: "green" }
                   : { backgroundColor: "red" }
               }
             >
-              {e.isOnline}
+              {isOnline}
             </span>
-            <img className={cs.avatar} src={e.avatar} alt={e.name} width="48" />
-            <p className={cs.name}>{e.name}</p>
+            <img className={cs.avatar} src={avatar} alt={name} width="48" />
+            <p className={cs.name}>{name}</p>
           </li>
         ))}
       </ul>
