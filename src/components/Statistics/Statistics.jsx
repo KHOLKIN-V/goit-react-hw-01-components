@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import cs from "./Statistics.module.css";
-import randomColor from "./helper";
+import randomColor from "../../helpers/helper";
+import StatisticItem from "../StatisticItem/StatisticItem";
 
 const Statistics = ({ title, stats }) => {
   return (
@@ -15,8 +16,7 @@ const Statistics = ({ title, stats }) => {
               style={{ backgroundColor: `${randomColor()}` }}
               key={id}
             >
-              <span className={cs.label}>{label}</span>
-              <span className={cs.percentage}>{percentage}%</span>
+              <StatisticItem label={label} percentage={percentage} />
             </li>
           ))}
         </ul>
@@ -30,18 +30,10 @@ Statistics.propTypes = {
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      label: PropTypes.string,
-      percentage: PropTypes.number,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
     })
   ),
 };
-
-// function get_rand_color() {
-//   let color = Math.floor(Math.random() * Math.pow(256, 3)).toString(16);
-//   while (color.length < 6) {
-//     color = "0" + color;
-//   }
-//   return "#" + color;
-// }
 
 export default Statistics;
