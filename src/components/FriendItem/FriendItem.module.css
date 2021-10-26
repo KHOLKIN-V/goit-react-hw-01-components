@@ -1,0 +1,14 @@
+.status {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: black;
+  margin-right: 10px;
+}
+.avatar {
+  padding-right: 10px;
+}
+.name {
+  font-size: 30px;
+  font-weight: 500;
+}
